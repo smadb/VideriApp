@@ -12,5 +12,4 @@ export class User {
         this.password_user = password_user;
         this.picture_user = picture_user;
     }
-
 }

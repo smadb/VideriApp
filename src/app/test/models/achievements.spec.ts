@@ -1,4 +1,4 @@
-import { Achievements } from './achievements.model';
+import { Achievements } from '../../models/achievements.model';
 
 describe('Achievements', () => {
   it('should create an instance', () => {

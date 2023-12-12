@@ -1,6 +1,6 @@
-import { Category } from './category.model';
-import { Movie } from './movie.model';
-import { Reaction } from './reaction.model';
+import { Category } from '../../models/category.model';
+import { Movie } from '../../models/movie.model';
+import { Reaction } from '../../models/reaction.model';
 
 describe('Movie', () => {
   it('should create an instance', () => {

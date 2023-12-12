@@ -1,4 +1,4 @@
-import { Reaction } from './reaction.model';
+import { Reaction } from '../../models/reaction.model';
 
 describe('Reaction', () => {
   it('should create an instance', () => {

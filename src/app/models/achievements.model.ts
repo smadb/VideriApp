@@ -1,4 +1,4 @@
-export class Achievements {
+export class Achievements { //test/models/achievements.spec
     id:number;
     name:string;
     icon:string;

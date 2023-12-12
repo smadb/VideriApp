@@ -1,0 +1,7 @@
+{
+  "name": "Videri",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

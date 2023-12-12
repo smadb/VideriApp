@@ -1,6 +1,6 @@
 import { Achievements } from "./achievements.model";
-
-export class User {
+ 
+export class User { //test/models/user.spec
     id:number;
     mail_user:string;
     alias_user:string;

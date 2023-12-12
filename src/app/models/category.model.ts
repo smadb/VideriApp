@@ -1,4 +1,4 @@
-export class Category {
+export class Category { //test/models/category.spec
     id:number;
     name:string;
 

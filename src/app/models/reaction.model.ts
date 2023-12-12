@@ -1,4 +1,4 @@
-export class Reaction {
+export class Reaction { //test/models/reaction.spec
     id:number;
     type:number; //1:first impression 2:second thought
     note:number;

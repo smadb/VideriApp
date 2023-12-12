@@ -1,7 +1,7 @@
 import { Category } from "./category.model";
 import { Reaction } from "./reaction.model";
 
-export class Movie {
+export class Movie { //test/models/movie.spec
     id:number;
     name:string;
     link_api:string;

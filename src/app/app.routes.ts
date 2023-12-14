@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthComponent } from './shared/auth/auth.component';
+import { SignUpComponent } from './shared/auth/sign-up/sign-up.component';
+import { SignInComponent } from './shared/auth/sign-in/sign-in.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +12,9 @@ export const routes: Routes = [
     ]
   },
   {
-    path:'login', component:AuthComponent 
+    path:'signUp', component:SignUpComponent 
+  },
+  {
+    path:'login', component:SignInComponent
   }
 ];

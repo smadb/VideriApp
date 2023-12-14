@@ -25,7 +25,10 @@ export class SignUpComponent  implements OnInit {
   ngOnInit() {}
 
   onSubmit(){
+    const FormValues = this.signUpForm.value;
 
+    this.supabaseService.signUp(FormValues.email,FormValues.password)
+    console.log('submit')
   }
 
 }

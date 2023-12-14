@@ -1,7 +1,18 @@
-<form [formGroup]="signUpForm">
 
-  <input type="text" formControlName="email">
-  <input type="text" formControlName="password">
+<body>
 
-  <button type="submit" (click)="onSubmit()">Valider</button>
-</form>
+  <article>
+    <app-display-logo></app-display-logo>
+  </article>
+
+  <article>
+    <form [formGroup]="signUpForm">
+
+        <input type="text" formControlName="email">
+        <input type="text" formControlName="password">
+
+        <button type="submit" (click)="onSubmit()">Valider</button>
+      </form>
+  </article>
+  
+</body>

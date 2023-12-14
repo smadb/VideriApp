@@ -29,7 +29,7 @@ export class SendMagicLinkComponent  implements OnInit {
     try {
       this.loading = true
       const email = this.signInForm.value.email as string
-      const { error } = await this.supabase.signIn(email)
+      const { error } = await this.supabase.signInWithOtp(email)
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {

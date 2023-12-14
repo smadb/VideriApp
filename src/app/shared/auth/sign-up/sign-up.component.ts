@@ -22,7 +22,10 @@ export class SignUpComponent  implements OnInit {
     })
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('signup')
+
+  }
 
   onSubmit(){
     const FormValues = this.signUpForm.value;

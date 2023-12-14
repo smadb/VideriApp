@@ -7,6 +7,7 @@ import {
   SupabaseClient,
   User,
 } from '@supabase/supabase-js'
+import { BehaviorSubject, Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
 
 export interface Profile {
@@ -24,8 +25,21 @@ export class SupabaseService {
   private supabase: SupabaseClient
   _session: AuthSession | null = null
 
+  private currentUser = new BehaviorSubject<any>(null)
+
+
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
+    this.supabase.auth.onAuthStateChange((event,session)=>{
+      console.log(event)
+      if(event === "SIGNED_IN" || event ==="TOKEN_REFRESHED"){
+        this.currentUser.next(session?.user);
+      }
+      else{
+        this.currentUser.next(false);
+      }
+    })
+    this.loadUser()
   }
 
   get session() {
@@ -33,6 +47,24 @@ export class SupabaseService {
       this._session = data.session
     })
     return this._session
+  }
+
+  getCurrentUser():Observable<any>{
+    return this.currentUser.asObservable()
+  }
+
+  async loadUser(){
+    if(this.currentUser.value){
+      return;
+    }
+    const user = await this.supabase.auth.getUser()
+
+    if(user.data.user){
+      this.currentUser.next(user.data.user);
+    }
+    else{
+      this.currentUser.next(false);
+    }
   }
 
   profile(user: User) {

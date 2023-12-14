@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   constructor() {}
 
   ngOnInit(): void {
-    let user = new User(1,'mail','alias','password','picture',[])
-    console.log(user) 
+
   }
 }

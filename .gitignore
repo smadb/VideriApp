@@ -69,3 +69,4 @@ Thumbs.db
 
 # !ionicpages
 
+/src/app/shared/auth

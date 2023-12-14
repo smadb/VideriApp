@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { User } from './models/userApp.model';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   standalone: true,
   imports: [IonApp, IonRouterOutlet],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   constructor() {}
+
+  ngOnInit(): void {
+    let user = new User(1,'mail','alias','password','picture',[])
+    console.log(user) 
+  }
 }

@@ -1,5 +1,5 @@
 import { Achievements } from '../../models/achievements.model';
-import { User } from '../../models/user.model';
+import { User } from '../../models/userApp.model';
 
 describe('User', () => {
   it('should create an instance', () => {

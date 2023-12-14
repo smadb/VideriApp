@@ -5,6 +5,9 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./shared/navigation/components/tabs/tabs.routes').then((m) => m.routes),
+    canActivate: [
+      
+    ]
   },
   {
     path:'login', component:AuthComponent 

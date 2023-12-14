@@ -47,8 +47,26 @@ export class SupabaseService {
     return this.supabase.auth.onAuthStateChange(callback)
   }
 
-  signIn(email: string) {
+  signUp(email:string,password:string){
+    return this.supabase.auth.signUp(
+      {
+        email:email,
+        password:password
+      }
+    )
+  }
+
+  signInWithOtp(email: string) {
     return this.supabase.auth.signInWithOtp({ email })
+  }
+
+  signInWithPassword(email:string,password:string){
+    return this.supabase.auth.signInWithPassword(
+      {
+        email:email,
+        password:password
+      }
+    )
   }
 
   signOut() {

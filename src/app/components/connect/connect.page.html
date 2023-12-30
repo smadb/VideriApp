@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Connexion</ion-title>
+    <ion-title *ngIf="this.signInBool">Connexion</ion-title>
+    <ion-title *ngIf="!this.signInBool">Inscription</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -12,8 +14,8 @@
   </ion-header>
 
   <div>
-    <button (click)="this.signInBool = true">Sign In</button>
-    <button (click)="this.signInBool = false">Sign Up</button>
+    <button (click)="this.signInBool = true" *ngIf="!this.signInBool">Sign In</button>
+    <button (click)="this.signInBool = false" *ngIf="this.signInBool">Sign Up</button>
   </div>
 
   <form *ngIf="this.signInBool" [formGroup]="signInForm">
@@ -21,7 +23,7 @@
     <input type="text" formControlName="email">
     <input type="text" formControlName="password">
   
-    <button type="submit" (click)="onSignIn()">Valider connexion</button>
+    <button type="submit" (click)="onSignIn()">Valider Connexion</button>
   </form>
 
   <form *ngIf="!this.signInBool" [formGroup]="signUpForm">

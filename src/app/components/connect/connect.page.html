@@ -6,24 +6,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="page" [fullscreen]="true">
+<ion-content class="page" [fullscreen]="true" [scrollEvents]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">connect</ion-title>
     </ion-toolbar>
   </ion-header>
   <div class="switch-login">
-    <app-switch-login (click)="this.signInBool = true" *ngIf="!this.signInBool" [text]="'Sign In'" [icone]="'enter'"></app-switch-login>
-    <app-switch-login (click)="this.signInBool = false" *ngIf="this.signInBool" [text]="'Sign Up'" [icone]="'save'"></app-switch-login>
+    <app-switch-login (click)="switchLogin(true)" *ngIf="!this.signInBool" [text]="'Sign In'"
+      [icone]="'enter'"></app-switch-login>
+    <app-switch-login (click)="switchLogin(false)" *ngIf="this.signInBool" [text]="'Sign Up'"
+      [icone]="'save'"></app-switch-login>
   </div>
 
   <form class="connect-form" *ngIf="this.signInBool" [formGroup]="signInForm">
 
-    <input class="connect-input" type="text" formControlName="email">
-    <ion-input label="E-mail" label-placement="floating" fill="solid" placeholder="Votre email"></ion-input>
+    <!-- <input class="connect-input" type="text" formControlName="email"> -->
+    <ion-input formControlName="email" type="email" color="secondary" class="connect-input" label="E-mail"
+      label-placement="floating" fill="solid" placeholder="Votre email"
+      errorText="Vérifiez votre adresse mail"></ion-input>
 
-    <input class="connect-input" type="text" formControlName="password">
-    <ion-input label="Password" label-placement="floating" fill="solid" placeholder="Votre mot de passe"></ion-input>
+    <!-- <input class="connect-input" type="text" formControlName="password"> -->
+    <ion-input formControlName="password" type="password" color="secondary" class="connect-input" label="Mot de passe"
+      label-placement="floating" fill="solid" placeholder="Votre mot de passe"></ion-input>
 
 
     <div class="submit-connect">
@@ -34,15 +39,23 @@
 
   <form class="connect-form" *ngIf="!this.signInBool" [formGroup]="signUpForm">
 
-    <input class="connect-input" type="text" formControlName="email">
-    <ion-input label="E-mail" label-placement="floating" fill="solid" placeholder="Votre email"></ion-input>
+    <!-- <input class="connect-input" type="text" formControlName="email"> -->
+    <ion-input autocomplete="off" formControlName="email" type="email" color="secondary" class="connect-input" label="E-mail"
+      label-placement="floating" fill="solid" placeholder="Votre email"
+      errorText="Vérifiez votre adresse mail"></ion-input>
 
-    <input class="connect-input" type="text" formControlName="password">
-    <ion-input label="Password" label-placement="floating" fill="solid" placeholder="Votre mot de passe"></ion-input>
+    <!-- <input class="connect-input" type="text" formControlName="password"> -->
+    <ion-input formControlName="password" type="password" color="secondary" class="connect-input" label="Mot de passe"
+      label-placement="floating" fill="solid" placeholder="Votre mot de passe"
+      errorText="Votre mot de passe doit contenir au moins 6 caractères"></ion-input>
+
+    <ion-input formControlName="verifyPassword" type="password" color="secondary" class="connect-input" label="Confirmer mot de passe"
+      label-placement="floating" fill="solid" placeholder="Confirmer mot de passe"
+      ></ion-input>
 
 
     <div class="submit-connect">
-          <app-submit-connect  (click)="onSignUp()" [text]="'INSCRIPTION'"></app-submit-connect>
+      <app-submit-connect (click)="onSignUp()" [text]="'INSCRIPTION'"></app-submit-connect>
     </div>
 
   </form>

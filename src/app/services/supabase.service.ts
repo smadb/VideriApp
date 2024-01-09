@@ -31,7 +31,6 @@ export class SupabaseService {
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
     this.supabase.auth.onAuthStateChange((event,session)=>{
-      console.log(event)
       if(event === "SIGNED_IN" || event ==="TOKEN_REFRESHED"){
         this.currentUser.next(session?.user);
       }

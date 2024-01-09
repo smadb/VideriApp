@@ -1,4 +1,5 @@
-<ion-app>
+<ion-app (headerTitle)="getTitle($event)">
+  <app-ion-header [ionTitle]="headerTitle"></app-ion-header>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
 <!-- <ion-icon name="star"></ion-icon> -->

@@ -31,14 +31,16 @@ export class SupabaseService {
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
     this.supabase.auth.onAuthStateChange((event,session)=>{
-      console.log('hello')
       if(event === "SIGNED_IN" || event ==="TOKEN_REFRESHED"){
         this.currentUser.next(session?.user);
       }
       else{
+        // console.log('no user')
         this.currentUser.next(false);
+        // console.log(this.currentUser.value)
       }
     })
+    // console.log('before load user')
     this.loadUser()
   }
 
@@ -55,23 +57,28 @@ export class SupabaseService {
 
   async loadUser(){
     if(this.currentUser.value){
+      // console.log(this.currentUser.value)
       return;
     }
     const user = await this.supabase.auth.getUser().then(
       (user)=> {
+        // console.log('const user then')
         return user
       },
     ).catch(
       (err)=>{
+        // console.log('const user catch')
         this.currentUser.next(false)
         return err;
       }
     )
+    // console.log('user',user)
 
     if(user.data.user){
       this.currentUser.next(user.data.user);
     }
     else{
+      // console.log('data user null')
       this.currentUser.next(false);
     }
   }

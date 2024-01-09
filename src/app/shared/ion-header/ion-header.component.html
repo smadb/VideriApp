@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar class="toolbar">
+
+    <ion-title class="title" slot="start">
+      {{ionTitle}}
+      
+    </ion-title>
+
+      <ion-button (click)="deconnect()" class="deco-button" slot="end" color="primary" fill="clear">
+        <ion-icon size="medium" slot="icon-only" name="power-outline"></ion-icon>
+      </ion-button>
+
+  </ion-toolbar>
+
+</ion-header>

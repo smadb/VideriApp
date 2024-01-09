@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeaderService } from 'src/app/services/ionheader/ion-header.service';
 import { ExploreContainerComponent } from 'src/app/shared/explore-container/explore-container.component';
 
 @Component({
@@ -9,8 +10,11 @@ import { ExploreContainerComponent } from 'src/app/shared/explore-container/expl
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent]
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
-  constructor() {}
+  constructor(private ionheaderservice:IonHeaderService) {}
 
+  ngOnInit(): void {
+    this.ionheaderservice.setTitle('tab2')
+  }
 }

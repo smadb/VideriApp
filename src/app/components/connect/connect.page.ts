@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { SupabaseService } from 'src/app/services/supabase.service';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { SubmitConnectComponent } from './submit-connect/submit-connect.component';
+import { SwitchLoginComponent } from './switch-login/switch-login.component';
 
 @Component({
   selector: 'app-connect',
   templateUrl: './connect.page.html',
   styleUrls: ['./connect.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule,SubmitConnectComponent,SwitchLoginComponent]
 })
 export class ConnectPage implements OnInit {
   signInForm!:FormGroup;

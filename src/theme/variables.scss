@@ -1,31 +1,36 @@
-// Ionic Variables and Theming. For more info, please see:
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
 :root {
+  font-family: 'Lato', sans-serif;
+  ;
+
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary: rgb(250, 173, 113); //Sandy brown
+  // --ion-color-primary-rgb: 250, 173, 113;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: rgb(255, 190, 140); //Peach
+  --ion-color-primary-tint: rgb(255, 202, 161); // clear Peach
 
-  /** secondary **/
-  --ion-color-secondary: #3dc2ff;
-  --ion-color-secondary-rgb: 61, 194, 255;
+  /** secondary **/ 
+  --ion-color-secondary: rgb(43, 158, 173); //Light sea green
+  // --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
-  --ion-color-secondary-tint: #50c8ff;
+  --ion-color-secondary-shade: rgb(112, 234, 250); //Electric blue
+  --ion-color-secondary-tint: rgb(150, 243, 255); // clear Electric blue
 
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
-  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary: rgb(199, 38, 24); //Fire engine red
+  // --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #4854e0;
-  --ion-color-tertiary-tint: #6370ff;
+  --ion-color-tertiary-shade: rgb(122, 57, 51); //Garnet
+  --ion-color-tertiary-tint: rgb(251, 117, 105); //Bittersweet
+
 
   /** success **/
   --ion-color-success: #2dd36f;
@@ -74,6 +79,9 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** text **/
+  --ion-text-primary: rgb(253, 248, 239);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,6 +91,8 @@
    */
 
   body {
+    font-family: 'Lato', sans-serif;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -153,6 +163,8 @@
    */
 
   .ios body {
+    font-family: 'Lato', sans-serif;
+
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -235,10 +247,16 @@
   }
 }
 
+*{
+  font-family: 'Lato', sans-serif;
+}
+
 html {
+  font-family: 'Lato', sans-serif;
   /* 
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
+
 }

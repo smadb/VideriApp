@@ -1,0 +1,23 @@
+.switch-login{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 20px 0px;
+}
+.connect-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.connect-input{
+    margin: 0px 0px 30px 0px;
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+}
+.submit-connect{
+    display: flex;
+    justify-content: center;
+}
+

@@ -6,32 +6,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="page" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">connect</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div>
-    <button (click)="this.signInBool = true" *ngIf="!this.signInBool">Sign In</button>
-    <button (click)="this.signInBool = false" *ngIf="this.signInBool">Sign Up</button>
+  <div class="switch-login">
+    <app-switch-login (click)="this.signInBool = true" *ngIf="!this.signInBool" [text]="'Sign In'" [icone]="'enter'"></app-switch-login>
+    <app-switch-login (click)="this.signInBool = false" *ngIf="this.signInBool" [text]="'Sign Up'" [icone]="'save'"></app-switch-login>
   </div>
 
-  <form *ngIf="this.signInBool" [formGroup]="signInForm">
+  <form class="connect-form" *ngIf="this.signInBool" [formGroup]="signInForm">
 
-    <input type="text" formControlName="email">
-    <input type="text" formControlName="password">
-  
-    <button type="submit" (click)="onSignIn()">Valider Connexion</button>
+    <input class="connect-input" type="text" formControlName="email">
+    <ion-input label="E-mail" label-placement="floating" fill="solid" placeholder="Votre email"></ion-input>
+
+    <input class="connect-input" type="text" formControlName="password">
+    <ion-input label="Password" label-placement="floating" fill="solid" placeholder="Votre mot de passe"></ion-input>
+
+
+    <div class="submit-connect">
+      <app-submit-connect (click)="onSignIn()" [text]="'CONNEXION'"></app-submit-connect>
+    </div>
+
   </form>
 
-  <form *ngIf="!this.signInBool" [formGroup]="signUpForm">
+  <form class="connect-form" *ngIf="!this.signInBool" [formGroup]="signUpForm">
 
-    <input type="text" formControlName="email">
-    <input type="text" formControlName="password">
+    <input class="connect-input" type="text" formControlName="email">
+    <ion-input label="E-mail" label-placement="floating" fill="solid" placeholder="Votre email"></ion-input>
 
-    <button type="submit" (click)="onSignUp()">Valider Inscription</button>
+    <input class="connect-input" type="text" formControlName="password">
+    <ion-input label="Password" label-placement="floating" fill="solid" placeholder="Votre mot de passe"></ion-input>
+
+
+    <div class="submit-connect">
+          <app-submit-connect  (click)="onSignUp()" [text]="'INSCRIPTION'"></app-submit-connect>
+    </div>
+
   </form>
 
 </ion-content>

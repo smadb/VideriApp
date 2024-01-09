@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   constructor(private SupabaseService:SupabaseService,private router:Router) {
+
     this.SupabaseService.getCurrentUser().subscribe(
       (user)=>{
         if(user){
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-
+ 
   }
+
 }

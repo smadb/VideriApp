@@ -31,6 +31,7 @@ export class SupabaseService {
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
     this.supabase.auth.onAuthStateChange((event,session)=>{
+      console.log('hello')
       if(event === "SIGNED_IN" || event ==="TOKEN_REFRESHED"){
         this.currentUser.next(session?.user);
       }
@@ -56,7 +57,16 @@ export class SupabaseService {
     if(this.currentUser.value){
       return;
     }
-    const user = await this.supabase.auth.getUser()
+    const user = await this.supabase.auth.getUser().then(
+      (user)=> {
+        return user
+      },
+    ).catch(
+      (err)=>{
+        this.currentUser.next(false)
+        return err;
+      }
+    )
 
     if(user.data.user){
       this.currentUser.next(user.data.user);
@@ -73,6 +83,7 @@ export class SupabaseService {
       .eq('id', user.id)
       .single()
   }
+
 
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return this.supabase.auth.onAuthStateChange(callback)
